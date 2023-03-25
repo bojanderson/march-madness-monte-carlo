@@ -4,16 +4,35 @@
 #
 #    pip-compile requirements-dev.in
 #
+anyio==3.6.2
+    # via jupyter-server
+argon2-cffi==21.3.0
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
+argon2-cffi-bindings==21.2.0
+    # via argon2-cffi
+arrow==1.2.3
+    # via isoduration
 asttokens==2.2.1
     # via stack-data
 attrs==22.2.0
-    # via pytest
+    # via
+    #   jsonschema
+    #   pytest
 backcall==0.2.0
     # via ipython
+beautifulsoup4==4.12.0
+    # via nbconvert
 black[jupyter]==22.12.0
     # via -r requirements-dev.in
+bleach==6.0.0
+    # via nbconvert
 build==0.10.0
     # via pip-tools
+cffi==1.15.1
+    # via argon2-cffi-bindings
 cfgv==3.3.1
     # via pre-commit
 click==8.1.3
@@ -26,48 +45,150 @@ colorama==0.4.6
     #   click
     #   ipython
     #   pytest
+comm==0.1.3
+    # via ipykernel
+debugpy==1.6.6
+    # via ipykernel
 decorator==5.1.1
     # via ipython
+defusedxml==0.7.1
+    # via nbconvert
 distlib==0.3.6
     # via virtualenv
 exceptiongroup==1.1.1
     # via pytest
 executing==1.2.0
     # via stack-data
+fastjsonschema==2.16.3
+    # via nbformat
 filelock==3.10.4
     # via virtualenv
 flake8==6.0.0
     # via -r requirements-dev.in
+fqdn==1.5.1
+    # via jsonschema
 identify==2.5.22
     # via pre-commit
+idna==3.4
+    # via
+    #   anyio
+    #   jsonschema
 iniconfig==2.0.0
     # via pytest
+ipykernel==6.22.0
+    # via
+    #   nbclassic
+    #   notebook
 ipython==8.11.0
     # via
     #   black
+    #   ipykernel
     #   nbqa
+ipython-genutils==0.2.0
+    # via
+    #   nbclassic
+    #   notebook
+isoduration==20.11.0
+    # via jsonschema
 isort==5.12.0
     # via -r requirements-dev.in
 jedi==0.18.2
     # via ipython
+jinja2==3.1.2
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   nbconvert
+    #   notebook
+jsonpointer==2.3
+    # via jsonschema
+jsonschema[format-nongpl]==4.17.3
+    # via
+    #   jupyter-events
+    #   nbformat
+jupyter-client==8.1.0
+    # via
+    #   ipykernel
+    #   jupyter-server
+    #   nbclassic
+    #   nbclient
+    #   notebook
+jupyter-core==5.3.0
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   nbclassic
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+    #   notebook
+jupyter-events==0.6.3
+    # via jupyter-server
+jupyter-server==2.5.0
+    # via
+    #   nbclassic
+    #   notebook-shim
+jupyter-server-terminals==0.4.4
+    # via jupyter-server
+jupyterlab-pygments==0.2.2
+    # via nbconvert
+markupsafe==2.1.2
+    # via
+    #   jinja2
+    #   nbconvert
 matplotlib-inline==0.1.6
-    # via ipython
+    # via
+    #   ipykernel
+    #   ipython
 mccabe==0.7.0
     # via flake8
+mistune==2.0.5
+    # via nbconvert
 mypy-extensions==1.0.0
     # via black
+nbclassic==0.5.3
+    # via notebook
+nbclient==0.7.2
+    # via nbconvert
+nbconvert==7.2.10
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
+nbformat==5.8.0
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   nbclient
+    #   nbconvert
+    #   notebook
 nbqa==1.6.0
     # via -r requirements-dev.in
+nest-asyncio==1.5.6
+    # via
+    #   ipykernel
+    #   nbclassic
+    #   notebook
 nodeenv==1.7.0
     # via pre-commit
+notebook==6.5.3
+    # via -r requirements.in
+notebook-shim==0.2.2
+    # via nbclassic
 numpy==1.24.2
     # via pandas
 packaging==23.0
     # via
     #   build
+    #   ipykernel
+    #   jupyter-server
+    #   nbconvert
     #   pytest
 pandas==1.5.3
     # via -r requirements.in
+pandocfilters==1.5.0
+    # via nbconvert
 parso==0.8.3
     # via jedi
 pathspec==0.11.1
@@ -79,35 +200,99 @@ pip-tools==6.12.1
 platformdirs==3.1.1
     # via
     #   black
+    #   jupyter-core
     #   virtualenv
 pluggy==1.0.0
     # via pytest
 pre-commit==2.21.0
     # via -r requirements-dev.in
+prometheus-client==0.16.0
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
 prompt-toolkit==3.0.38
     # via ipython
+psutil==5.9.4
+    # via ipykernel
 pure-eval==0.2.2
     # via stack-data
 pycodestyle==2.10.0
     # via flake8
+pycparser==2.21
+    # via cffi
 pyflakes==3.0.1
     # via flake8
 pygments==2.14.0
-    # via ipython
+    # via
+    #   ipython
+    #   nbconvert
 pyproject-hooks==1.0.0
     # via build
+pyrsistent==0.19.3
+    # via jsonschema
 pytest==7.2.2
     # via -r requirements-dev.in
 python-dateutil==2.8.2
-    # via pandas
+    # via
+    #   arrow
+    #   jupyter-client
+    #   pandas
+python-json-logger==2.0.7
+    # via jupyter-events
 pytz==2022.7.1
     # via pandas
+pywin32==305
+    # via jupyter-core
+pywinpty==2.0.10
+    # via
+    #   jupyter-server
+    #   jupyter-server-terminals
+    #   terminado
 pyyaml==6.0
-    # via pre-commit
+    # via
+    #   jupyter-events
+    #   pre-commit
+pyzmq==25.0.2
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
+rfc3339-validator==0.1.4
+    # via
+    #   jsonschema
+    #   jupyter-events
+rfc3986-validator==0.1.1
+    # via
+    #   jsonschema
+    #   jupyter-events
+send2trash==1.8.0
+    # via
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
 six==1.16.0
-    # via python-dateutil
+    # via
+    #   asttokens
+    #   bleach
+    #   python-dateutil
+    #   rfc3339-validator
+sniffio==1.3.0
+    # via anyio
+soupsieve==2.4
+    # via beautifulsoup4
 stack-data==0.6.2
     # via ipython
+terminado==0.17.1
+    # via
+    #   jupyter-server
+    #   jupyter-server-terminals
+    #   nbclassic
+    #   notebook
+tinycss2==1.2.1
+    # via nbconvert
 tokenize-rt==5.0.0
     # via
     #   black
@@ -119,14 +304,43 @@ tomli==2.0.1
     #   nbqa
     #   pyproject-hooks
     #   pytest
+tornado==6.2
+    # via
+    #   ipykernel
+    #   jupyter-client
+    #   jupyter-server
+    #   nbclassic
+    #   notebook
+    #   terminado
 traitlets==5.9.0
     # via
+    #   comm
+    #   ipykernel
     #   ipython
+    #   jupyter-client
+    #   jupyter-core
+    #   jupyter-events
+    #   jupyter-server
     #   matplotlib-inline
+    #   nbclassic
+    #   nbclient
+    #   nbconvert
+    #   nbformat
+    #   notebook
+uri-template==1.2.0
+    # via jsonschema
 virtualenv==20.21.0
     # via pre-commit
 wcwidth==0.2.6
     # via prompt-toolkit
+webcolors==1.12
+    # via jsonschema
+webencodings==0.5.1
+    # via
+    #   bleach
+    #   tinycss2
+websocket-client==1.5.1
+    # via jupyter-server
 wheel==0.40.0
     # via pip-tools
 
