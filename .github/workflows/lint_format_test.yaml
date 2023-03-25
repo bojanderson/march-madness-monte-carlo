@@ -1,0 +1,33 @@
+name: Lint, Format and Test
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  lint_format_test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+      - uses: psf/black@stable
+        with:
+          options: "--check --verbose"
+          jupyter: true
+          version: "22.12.0"
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-dev.txt
+      - name: Lint with flake8
+        run: |
+          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=88 --statistics
+          nbqa flake8 . --ignore=E203,E266,E501,W503 --max-line-length=88 --max-complexity=18 --show-source --statistics --select=B,C,E,F,W,T4,B9
+      - uses: isort/isort-action@v1.0.0
+        with:
+          isort-version: "5.12.0"
+          args: --profile black --check-only
+      - name: Test with pytest
+        run: |
+          pytest
