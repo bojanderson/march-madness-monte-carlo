@@ -1,0 +1,38 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "CHORE github-actions updates:"
+    labels:
+      - "github-actions"
+      - "dependencies"
+      - "automerge"
+    reviewers:
+      - "bojanderson"
+  - package-ecosystem: "pre-commit"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "CHORE pre-commit updates:"
+    labels:
+      - "pre-commit"
+      - "dependencies"
+      - "automerge"
+    reviewers:
+      - "bojanderson"
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "CHORE pip updates:"
+    labels:
+      - "pip"
+      - "dependencies"
+      - "automerge"
+    reviewers:
+      - "bojanderson"
