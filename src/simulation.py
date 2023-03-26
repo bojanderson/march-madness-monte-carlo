@@ -1,9 +1,32 @@
+import argparse
 from typing import List
 
 import pandas as pd
 
 from src.team import Team
 from src.tournament import Tournament
+
+
+def parse_args() -> argparse.Namespace:
+    """
+    Parse command line arguments
+    """
+    parser = argparse.ArgumentParser(
+        description="Run a simulation of the NCAA tournament"
+    )
+    parser.add_argument(
+        "filename",
+        type=str,
+        help="The name of the file containing the teams and their elo ratings",
+    )
+    parser.add_argument(
+        "--num_sims",
+        type=int,
+        default=10000,
+        help="The number of simulations to run",
+    )
+
+    return parser.parse_args()
 
 
 def load_teams_from_538file(filename: str, slot_provided: bool) -> List[Team]:
@@ -171,3 +194,27 @@ def analyze_simulation(results: List[List[List[Team]]]) -> List[pd.DataFrame]:
     df3 = get_seed_wins(results)
 
     return [df1, df2, df3]
+
+
+def main(filename: str, num_sims: int = 1000):
+    # Get the teams
+    teams = load_teams_from_538file(filename)
+    # Run the simulation
+    results = run_simulation(num_simulations=num_sims, teams=teams)
+
+    # Analyze the results
+    dataframes = analyze_simulation(results)
+
+    # Print the results
+    for df in dataframes:
+        print(df)
+
+
+if __name__ == "__main__":
+
+    args = parse_args()
+
+    input_file = args.input_file
+    num_simulations = args.num_simulations
+
+    main(input_file, num_simulations)
